@@ -6,54 +6,50 @@
 
 		<?php while (have_posts()) : the_post(); ?>
 
-        <div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+			<div class="entry-hr <?php if(isLast()) echo 'entry-last'; ?>">
+        		<div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
         
-        
-        
-        
-		  <div class="date"><span><?php the_time('M') ?></span> <?php the_time('d') ?></div>
-		  
-		  
-		  
-		  <div class="title">
-          <h2  class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to',TDOMAIN);?> <?php the_title(); ?>"><?php the_title(); ?></a></h2>
-				<div class="postdata">					
-					<?php if(get_option('plallow') && get_option('pp_showauthor')):?><span class="author"><?php _e('By', TDOMAIN);?> <?php the_author() ?></span><?php endif;?>
-					<span class="category"><?php the_category(', ') ?></span>
-					<span class="comments"><?php comments_popup_link(__('No Comments &#187;', TDOMAIN), __('1 Comment &#187;', TDOMAIN), __('% Comments &#187;', TDOMAIN)); ?></span>
+					<div class="post-side">
+						<div class="post-info">
+							<p class="year"><?php the_time('Y') ?></p>
+							<p class="month-day"><?php the_time('m/d'); ?></p>
+							<?php echo get_avatar($post->post_author, $size = '50'); ?>
+						</div>
+					<div class="post-side-tag">
+						<?php the_category() ?>
+					</div>
 				</div>
-		  </div>
-		  
-		  
-		  
-		  
-          <div class="entry">
-          
+ 
+  		    <div class="post-main">
+         	    <h2  class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to',TDOMAIN);?> <?php the_title(); ?>"><?php the_title(); ?></a></h2>
 			<?php if(function_exists('the_post_thumbnail') && has_post_thumbnail()): ?>
-            		<div class="postthumb">
-						<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e('Permanent Link To', TDOMAIN);?> <?php the_title_attribute();?>">
-							<?php the_post_thumbnail('thumbnail');?>
-						</a>
-		            </div>
-			<?php endif; ?>
+            	<div class="postthumb">
+					<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e('Permanent Link To', TDOMAIN);?> <?php the_title_attribute();?>">
+						<?php the_post_thumbnail('thumbnail');?>
+					</a>
+		         </div>
+				<?php endif; ?>
+            	<?php the_content(__('Continue reading &raquo;',TDOMAIN)); ?>
+				<?php edit_post_link(__('Edit', TDOMAIN), '', ''); ?>
+				<?php wp_link_pages('before=<p>&after=</p>&next_or_number=number&pagelink=page %'); ?>
 				
-            <?php the_content(__('Continue reading &raquo;',TDOMAIN)); ?>
-			
-			<?php edit_post_link(__('Edit', TDOMAIN), '', ''); ?>
-			
-			<?php wp_link_pages('before=<p>&after=</p>&next_or_number=number&pagelink=page %'); ?>
-          </div><!--entry -->
-
-        </div><!--post -->
-        
-        
-        
-        
-	<div class="tags"><?php the_tags(__('Tagged with: ', TDOMAIN),' &bull; ','<br />'); ?></div>
+				<div class="sns">
+					<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>" onclick="window.open(this.href, efacebookwindowf, ewidth=550, height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1Œ); return false;"><img src="http://rd.uniba.jp/blog/wp-content/themes/iblog2/img/f_logo_s.png" width="17" height="17" /></a>
+					<a href="http://twitter.com/share?count=horizontal&amp;original_referer=<?php the_permalink(); ?>&amp;text=<?php the_title(); ?>&amp;url=<?php the_permalink(); ?>&amp;via=UnibaRD" onclick="window.open(this.href, etwitter_sharef, ewidth=550, height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1Œ); return false;" target="_blank"><img src="http://rd.uniba.jp/blog/wp-content/themes/iblog2/img/t_logo_s.png" width="17" height="17" /></a>
+					</div><!--sns -->
+					
+   			</div><!--entry -->
+		</div><!--/post -->
+ 			<!-- <div class="tags"><?php the_tags(__('Tagged with: ', TDOMAIN),' &bull; ','<br />'); ?></div> -->
+ 	</div>
+	
 		<?php endwhile; ?>
 		
-        <div class="page-nav fix"> <span class="previous-entries"><?php next_posts_link(__('Previous Entries', TDOMAIN)); ?></span> <span class="next-entries"><?php previous_posts_link(__('Next Entries', TDOMAIN)); ?></span></div><!-- page nav -->
-
+        <div class="page-nav fix">
+        	<span class="previous-entries"><?php next_posts_link(__('Old', TDOMAIN)); ?></span>
+        	<span class="next-entries"><?php previous_posts_link(__('New', TDOMAIN)); ?></span>
+        </div><!-- page-nav end -->
+        
 	<?php else : ?>
 		<div class="post">
 			<div class="billboard">

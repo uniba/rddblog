@@ -6,6 +6,26 @@ define('THEME_ROOT', get_bloginfo('template_url'));
 // THEME WP OPTIONS
 	if (function_exists( 'add_theme_support' )) add_theme_support('post-thumbnails');
 
+// ROOP FUNCTIONS
+function isFirst(){
+    global $wp_query;
+    return ($wp_query->current_post === 0);
+}
+
+function isLast(){
+    global $wp_query;
+    return ($wp_query->current_post+1 === $wp_query->post_count);
+}
+
+function isOdd(){
+    global $wp_query;
+    return ((($wp_query->current_post+1) % 2) === 1);
+}
+
+function isEvery(){
+    global $wp_query;
+    return ((($wp_query->current_post+1) % 2) === 0);
+}
 
 // LOCALIZATION
 	define('TDOMAIN', 'iBlog');

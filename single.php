@@ -25,16 +25,16 @@
 						</a>
 		            </div>
 			<?php endif; ?>
-				
             <?php the_content(__('Continue reading &raquo;',TDOMAIN)); ?>
-			
 			<?php edit_post_link(__('Edit', TDOMAIN), '', ''); ?>
-			
 			<?php wp_link_pages('before=<p>&after=</p>&next_or_number=number&pagelink=page %'); ?>
+			
+							<div class="sns">
+					<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>" onclick="window.open(this.href, efacebookwindowf, ewidth=550, height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1Œ); return false;"><img src="http://rd.uniba.jp/blog/wp-content/themes/iblog2/img/f_logo_s.png" width="17" height="17" /></a>
+					<a href="http://twitter.com/share?count=horizontal&amp;original_referer=<?php the_permalink(); ?>&amp;text=<?php the_title(); ?>&amp;url=<?php the_permalink(); ?>&amp;via=UnibaRD" onclick="window.open(this.href, etwitter_sharef, ewidth=550, height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1Œ); return false;" target="_blank"><img src="http://rd.uniba.jp/blog/wp-content/themes/iblog2/img/t_logo_s.png" width="17" height="17" /></a>
+					</div><!--sns -->
      </div><!--entry -->
-
 		</div>
-	
 		<!--/post -->
 		
 			<?php endwhile; else: ?>

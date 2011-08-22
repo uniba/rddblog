@@ -108,7 +108,7 @@ a:hover {text-decoration: underline;}
 		margin-top: 6px;
 	}
 	#searchform #searchsubmit { 
-		background: url(images/search-button.png) no-repeat 0 0;
+		background: url(img/icon_search.png) no-repeat 0 0;
 		height: 24px;
 		width: 24px;
 		border: none;
@@ -245,9 +245,13 @@ a:hover {text-decoration: underline;}
 .post .title {
 	float: left;
 	margin-left: 10px;
-	width: 558px;
+	width: 600px;
+}
+.post .title h2 a{
+	font-size: 25px;
 }
 .postdata {
+	margin: 0 0 2em 0;
 	font-size: 90%;
 	color: #999999;
 }
@@ -273,13 +277,10 @@ a:hover {text-decoration: underline;}
 	float: right;
 }
 .entry {
-	padding: 15px 0px 15px;
+	padding: 5px 0px 15px;
 	clear: both;
 	font-size: 14px;
 	line-height: 1.6em;
-	background: url("img/p_border.png");
-	background-repeat: repeat-x;
-	background-position: bottom;
 }
 
 .billboard{padding: 80px;}
@@ -317,16 +318,16 @@ h2.posttitle a, h2.posttitle a:visited {
 /* next & previous page navigation */
 .page-nav {
 	clear: both;
-	margin-bottom: .6em;
+	margin: 2em 0 .6em 0;
 	padding: 4px;
-	background: #e5e5e5 url(images/agradient-30.gif) repeat-x left top;
+	background: url(img/p_border.png) repeat-x top; */
 }
 .page-nav a, .page-nav a:visited {
 	color: #000;
 	text-decoration: none;
 }
 .page-nav a:hover {
-	color: #fff;
+	color: #999;
 	text-decoration: none;
 }
 .previous-entries a {
@@ -500,7 +501,7 @@ a.plimage {
 	width:105px;
 	font-size: 8px;
 	color: #eee;
-	background: url(images/pagelines-sig.png) no-repeat 0px 0px;
+	/* background: url(images/pagelines-sig.png) no-repeat 0px 0px; */
 }
 
 #cred a:hover {
@@ -762,8 +763,11 @@ hr.clear {clear:both;visibility: hidden;margin: 0px;padding: 0px;}
 	* html .fix{height:1%;}
 	.fix{display:block;}
 	
+	
+	
+	
         
-/** 110816追加分 **/
+/** 追加分 **/
 
 body{
 	background: none;
@@ -787,21 +791,23 @@ p{
 	#searchform {
 		width: 178px;
 		float: right;
-		font-size:12px;
+		font-size:11px;
 		padding:0;
 		margin:0;
+		background: url(img/search_bg.png) no-repeat;
 	}
 	#searchform #s{
 		background: none;
 		background-color: #000;
-		width: 133px;
-		padding: 4px 7px 2px 5px;
-		font-size: 12px;
+		border: none;
+		width: 135px;
+		/* padding: 4px 7px 2px 5px; */
+		font-size: 11px;
 		color: #999;
 		margin:0;
 	}
 	#searchform #searchsubmit { 
-		background: url(images/search-button.png) no-repeat 0 0;
+		background: url(img/icon_search.png) no-repeat 0 0;
 		height: 24px;
 		width: 24px;
 		border: none;
@@ -810,9 +816,53 @@ p{
 		line-height: 1px;
 		margin:0;
 	}
+	
+
+/* search */
+
+.post .search-date{
+	height: 46px;
+	width: 49px;
+	background: url(img/left_bg_search.png) no-repeat;
+	font: normal 22px Arial, Helvetica, sans-serif;
+	color: #666;
+	text-align: center;
+	line-height: 100%;
+	float: left;
+}
+.post .search-date p.year{
+	font-size: 0.8em;
+	margin: 0.1em 0 0.2em 0;
+	color: #000;
+}
+.post .search-date p.month-day{
+	font-size: 0.7em;
+	color: #000;
+}
+
+.search-category a{
+	font-size: 0.9em;
+    color: #000;
+}
+.search-category a:hover{
+	border-bottom: 1px solid #000;
+    color: #000;
+}
+.search-category a:visited{
+    color: #000;
+}
 
 
 /* post */
+
+.entry-hr{
+	background: url("img/p_border.png") repeat-x;
+	background-position: bottom;
+}
+
+.entry-last{
+	background: none;
+}
 
 .post-p {
 	clear: both;
@@ -877,6 +927,7 @@ p{
 	font-size: 14px;
 	line-height: 1.6em;
 }
+
 
 /* sidebar */
 #sidebar {
